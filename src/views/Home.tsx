@@ -52,7 +52,7 @@ class HomeClass extends React.Component<IProps, IState> {
 
     componentDidMount() {
         let cookie = getCookie("group_id")
-        if (!cookie) return this.navigate("/group")
+        if (!cookie) return setTimeout(() => this.navigate("/group"), 10)
         request(`/groups/${cookie}`).then(res => {
             if (res.type === "error") {
                 removeCookie("group_id")
