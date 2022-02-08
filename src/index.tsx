@@ -1,11 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { SnackbarProvider } from './contexts/Snackbar'
 import Routes from './routes'
 import "./styles/reset.scss"
 
-ReactDOM.render(
-    <React.StrictMode>
-        <Routes />
-    </React.StrictMode>,
-    document.getElementById('root')
-)
+ReactDOM.render(<SnackbarProvider>
+    <Routes />
+</SnackbarProvider>, document.getElementById('root'))
