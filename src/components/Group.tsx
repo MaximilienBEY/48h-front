@@ -21,7 +21,11 @@ const Group = (props: GroupProps) => {
         setAnchorEl(null)
     }
 
-    return <Grid item xs={6}>
+    return <Grid item sm={12} md={6} sx={{
+        "@media (max-width: 600px)": {
+            width: "100%"
+        }
+    }}>
         <Paper elevation={4} sx={{
             padding: theme => theme.spacing(2, 4),
         }}>

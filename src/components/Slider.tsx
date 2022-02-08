@@ -18,7 +18,11 @@ const Slider = (props: IProps) => {
         setAnchorEl(null)
     }
 
-    return <Grid item xs={4}>
+    return <Grid item sm={12} md={6} lg={4} sx={{
+        "@media (max-width: 600px)": {
+            width: "100%"
+        }
+    }}>
         <Paper elevation={4} sx={{
             padding: theme => theme.spacing(2, 4),
         }}>

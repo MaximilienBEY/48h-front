@@ -119,7 +119,7 @@ const GroupEdition = () => {
                     display: "flex",
                     justifyContent: "space-between"
                 }}>
-                    <Grid item xs={5} sx={{
+                    <Grid item xs={12} md={5} sx={{
                         display: "flex",
                         flexDirection: "column",
                         rowGap: 2
@@ -155,7 +155,7 @@ const GroupEdition = () => {
                             </Box>
                         </Box>
                     </Grid>
-                    <Grid item xs={6} rowSpacing={1} sx={{
+                    <Grid item xs={12} md={6} rowSpacing={1} sx={{
                         display: "flex",
                         flexDirection: "column",
                         rowGap: 4

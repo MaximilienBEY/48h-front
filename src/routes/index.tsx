@@ -7,6 +7,7 @@ import GroupEdition from "../views/admin/GroupEdition"
 import AuthMiddleware from "../middlewares/auth.middleware"
 import GuestMiddleware from "../middlewares/guest.middleware"
 import Group from "../views/Group"
+import Redirect from "../middlewares/redirect"
 
 const R = () => {
     return (
@@ -15,10 +16,10 @@ const R = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/group" element={<Group />} />
 
+                <Route path="/admin" element={<Redirect to="/admin/groups" />} />
                 <Route path="/admin/login" element={<GuestMiddleware>
                     <Login />
                 </GuestMiddleware>} />
-
                 <Route path="/admin/groups" element={<AuthMiddleware>
                     <AdminGroups />
                 </AuthMiddleware>} />
