@@ -1,3 +1,5 @@
+import { getCookie } from "./storage";
+
 interface RequestOptions {
     method?: "GET" | "POST" | "DELETE" | "PUT",
     data?: {
@@ -12,7 +14,8 @@ type RequestResponse = {
     [key: string]: any;
 }
 
-const API_URL = "http://localhost:8000"
+export const API_URL = "http://localhost:8000"
+export const CDN_URL = "http://localhost:8000/cdn"
 
 export const request = async (url: string, options?: RequestOptions): Promise<RequestResponse> => {
     let data = options?.data ? new FormData() : undefined
@@ -37,6 +40,8 @@ export const request = async (url: string, options?: RequestOptions): Promise<Re
     return response
 }
 
+export const getCdnUrl = (url: string) => `${CDN_URL}/${url.replace(/^\//, "")}`
+
 export const getToken = () => {
-    return "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY0NDI0MjE1MH0.9HWgyYY03WaURzThWPpQwMXS9ESLXKDj4SmUr_VtkJc"
+    return getCookie("jwt") ?? ""
 }

@@ -49,18 +49,20 @@ const Group = (props: GroupProps) => {
             anchorEl={anchorEl}
             open={!!anchorEl}
             onClose={handleClose}
-        >
-            <MenuItem sx={{
-                minWidth: 96,
+            sx={{
                 "& a": {
                     textDecoration: "none",
                     color: "text.primary"
                 }
-            }}>
-                <Link to={`/admin/groups/${props.id}`}>
+            }}
+        >
+            <Link to={`/admin/groups/${props.id}`}>
+                <MenuItem sx={{
+                    minWidth: 96
+                }}>
                     Edit
-                </Link>
-            </MenuItem>
+                </MenuItem>
+            </Link>
             <MenuItem onClick={() => props.onDelete()} sx={{
                 minWidth: 96,
                 color: "error.dark"

@@ -26,6 +26,7 @@
         "react-scripts": "^5.0.0",
         "react-sortable-hoc": "^2.0.0",
         "react-window": "^1.8.6",
+        "socket.io-client": "^4.4.1",
         "typescript": "^3.8.0"
     },
     "scripts": {
