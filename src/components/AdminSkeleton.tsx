@@ -5,7 +5,8 @@ import { CssBaseline, Divider, Drawer, IconButton, List, ListItem, ListItemButto
 import { Box } from '@mui/system'
 import { Article, ChevronLeft, ChevronRight, Dashboard, GridView, Inbox, Logout, Mail, Menu } from '@mui/icons-material'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { removeCookie } from '../functions/storage'
 
 const drawerWidth = 240
 
@@ -63,6 +64,7 @@ interface Option {
 }
 
 const AdminSkeleton = (option: Option) => {
+    const navigate = useNavigate()
     const theme = useTheme()
     const [open, setOpen] = useState(false)
 
@@ -72,6 +74,10 @@ const AdminSkeleton = (option: Option) => {
 
     const handleDrawerClose = () => {
         setOpen(false)
+    }
+    const handleSignout = () => {
+        removeCookie("jwt")
+        navigate("/auth/login")
     }
 
     return (
@@ -144,7 +150,7 @@ const AdminSkeleton = (option: Option) => {
                 </List>
                 <Divider />
                 <List>
-                    <ListItemButton>
+                    <ListItemButton onClick={handleSignout}>
                         <ListItemIcon>
                             <Logout />
                         </ListItemIcon>
